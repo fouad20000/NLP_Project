@@ -1,5 +1,5 @@
 # NLP_Project
-This NLP aims to make Café Chatbot.
+This NLP Project aims to make Café Chatbot.
 
 **Café Chatbot**
 
