@@ -39,6 +39,11 @@
 
 ❖	The chatbot will provide suggestions to the customer.
 
+# Sources: 
+
+❖ Ebook Rasa: https://info.rasa.com/masterclass-ebook.
+
+❖ WebChatbot integrated interface : https://github.com/Horizon733/rasa-webchat.
 
 # Café Chatbot
 
