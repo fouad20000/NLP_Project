@@ -1,0 +1,87 @@
+version: "3.1"
+
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+#drinks
+  - rule: Activate drinks Form
+    steps:
+    - intent: order_drinks
+    - action: drinks_form
+    - active_loop: drinks_form
+
+  - rule: Submit drinks Form
+    condition:
+    - active_loop: drinks_form
+    steps:
+    - action: drinks_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: action_drinks_order
+    - action: utter_ask_for_more
+#removing 
+  - rule: Activate drinks remove Form
+    steps:
+    - intent: remove_order_drinks
+    - action: drinks_remove_form
+    - active_loop: drinks_remove_form
+
+  - rule: Submit drinks remove Form
+    condition:
+    - active_loop: drinks_remove_form
+    steps:
+    - action: drinks_remove_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: action_drinks_remove
+    - action: utter_ask_for_more_remove
+  
+
+  #bakery 
+  - rule: Activate bakery Form
+    steps:
+    - intent: order_bakery
+    - action: bakery_form
+    - active_loop: bakery_form
+
+  - rule: Submit bakery Form
+    condition:
+    - active_loop: bakery_form
+    steps:
+    - action: bakery_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: action_bakery_order
+    - action: utter_ask_for_more
+  #removing 
+  - rule: Activate bakery remove Form
+    steps:
+    - intent: remove_order_bakery
+    - action: bakery_remove_form
+    - active_loop: bakery_remove_form
+
+  - rule: Submit bakery remove Form
+    condition:
+    - active_loop: bakery_remove_form
+    steps:
+    - action: bakery_remove_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: action_bakery_remove
+    - action: utter_ask_for_more_remove
+  
+
+
+  
+ 

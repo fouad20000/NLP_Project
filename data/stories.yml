@@ -1,0 +1,168 @@
+version: "3.1"
+stories:
+  - story: list bakery
+    steps:
+      - intent: list_bakery
+      - action: utter_list_bakery
+  
+  - story: list menu 
+    steps:
+      - intent: list_menu
+      - action: action_display_menu
+
+  - story: remove order all
+    steps:
+      - intent: remove_order_all
+      - action: action_remove_all
+
+  - story: remove order all 2 
+    steps:
+      - intent: remove_order_all
+      - action: action_remove_all
+      - intent: checkout
+      - action: action_checkout
+      
+        
+  - story: list drinks
+    steps:
+      - intent: list_drinks
+      - action: utter_list_drinks
+ 
+  - story: list offers
+    steps:
+      - intent: offers
+      - action: utter_list_offers
+  
+  - story: list offers
+    steps:
+      - intent: contact
+      - action: utter_contact
+
+  - story: making complaint
+    steps:
+      - intent: making_complaint
+      - action: utter_register_complaint
+
+  - story: asking for complaint
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: asking_for_complaint
+      - action: utter_asking_for_complaint
+      - intent: making_complaint
+      - action: utter_register_complaint
+  
+  - story: asking for suggestions
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: suggest_options
+      - action: action_suggestion
+
+  
+  # - story: take bakery order
+  #   steps:
+  #     - intent: order_bakery
+  #     - action: action_bakery_order
+ 
+ 
+  # - story: take drinks order
+  #   steps:
+  #     - intent: order_drinks
+  #     - action: utter_ask_for_size
+  #     - intent: provide_size
+  #     - action: action_drinks_order
+
+  - story: asking about available serving sizes  
+    steps:
+      - intent: size_asking
+      - action: utter_provide_size
+
+  - story: getting fila amount 
+    steps:
+      - intent: checkout
+      - action: action_checkout
+
+  - story: starting a conversation
+    steps:
+      - intent: order_general
+      - action: utter_order
+
+  - story: happy path 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: order_general
+      - action: utter_order
+      #- action: utter_ask_for_order
+      #- intent: order_drinks
+      #- action: utter_ask_for_size
+      #- intent: provide_size
+      #- action: action_drinks_order
+      #- intent: order_bakery
+      #- action: action_bakery_order
+      - intent: checkout
+      - action: action_checkout
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: happy path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      #- intent: order_drinks
+      #- action: utter_ask_for_size
+      #- intent: provide_size
+      #- action: action_drinks_order
+      - intent: checkout
+      - action: action_checkout
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: happy path 3
+    steps:
+      #- intent: order_bakery
+      #- action: action_bakery_order
+      #- intent: order_bakery
+      #- action: action_bakery_order
+      #- intent: order_bakery
+      #- action: action_bakery_order
+      - intent: checkout
+      - action: action_checkout
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: happy path 4
+    steps:
+      - intent: greet
+      - action: utter_greet
+     # - intent: order_bakery
+     # - action: action_bakery_order
+     # - intent: order_bakery
+     # - action: action_bakery_order
+     # - intent: order_bakery
+     # - action: action_bakery_order
+      - intent: checkout
+      - action: action_checkout
+      - intent: goodbye
+      - action: utter_goodbye
+
+  # - story: sad path 1
+  #   steps:
+  #     - intent: greet
+  #     - action: utter_greet
+  #     - intent: mood_unhappy
+  #     - action: utter_cheer_up
+  #     - action: utter_did_that_help
+  #     - intent: affirm
+  #     - action: utter_happy
+
+  # - story: sad path 2
+  #   steps:
+  #     - intent: greet
+  #     - action: utter_greet
+  #     - intent: mood_unhappy
+  #     - action: utter_cheer_up
+  #     - action: utter_did_that_help
+  #     - intent: deny
+  #     - action: utter_goodbye

@@ -1,0 +1,518 @@
+version: "3.1"
+
+nlu:
+  - intent: order_general
+    examples: |
+      - can i make an order?
+      - i want to make an order please
+      - can i order please 
+      - can you take my order please 
+      - i want to place an order 
+      - can i start ?
+      - i want to start an order 
+      - can you help me make an order
+      - i want to start a new order
+      
+  
+  
+  - intent: order_drinks
+    examples: |
+      - i want to order [black coffee]{"entity":"drinks", "value":"black coffee"}
+      - i want to order [dark coffee]{"entity":"drinks", "value":"black coffee"}
+      - i want to order [dark roasted coffee]{"entity":"drinks", "value":"black coffee"}
+      - i want to order [1](number) [black coffee]{"entity":"drinks", "value":"black coffee"}
+      - i want to order [two](number) [black coffee]{"entity":"drinks", "value":"black coffee"}
+      - i want to order coffee
+      - can i have a [black coffee]{"entity":"drinks", "value":"black coffee"} please
+      - can i have a [normal coffee]{"entity":"drinks", "value":"black coffee"} please
+      - i want a [latte]{"entity":"drinks", "value":"latte"}
+      - i want a [cappuccino]{"entity":"drinks", "value":"cappuccino"}
+      - make me a [latte]{"entity":"drinks", "value":"latte"}
+      - make me a [cappuccino]{"entity":"drinks", "value":"cappuccino"}
+      - add a [iced coffee]{"entity":"drinks", "value":"iced coffee"}
+      - fetch me a [iced coffee]{"entity":"drinks", "value":"iced coffee"}
+      - fetch me a [one](number) [l]{"entity":"size", "value":"large"} [iced coffee]{"entity":"drinks", "value":"iced coffee"}
+      - add a [iced latte]{"entity":"drinks", "value":"iced latte"}to the bill
+      - one more thing, [7](number)[iced latte]{"entity":"drinks", "value":"iced latte"}
+      - one more thing, [ice latte]{"entity":"drinks", "value":"iced latte"}
+      - one more thing,[2](number) [iced coffee]{"entity":"drinks", "value":"iced coffee"}
+      - one more thing, [ice coffee]{"entity":"drinks", "value":"iced coffee"}
+      - don't forget to add a [iced latte]{"entity":"drinks", "value":"iced latte"}
+      - i want to order coffee of size [large](size) 
+      - add a [three](number) [big]{"entity":"size", "value":"large"} [iced coffee]{"entity":"drinks", "value":"iced coffee"}
+      - add a [three](number) [l]{"entity":"size", "value":"large"} [iced coffee]{"entity":"drinks", "value":"iced coffee"}
+      - add a [three](number) [grande](size) [iced coffee]{"entity":"drinks", "value":"iced coffee"}
+      - add a [three](number) [demi](size) [iced coffee]{"entity":"drinks", "value":"iced coffee"}
+      - can i place an order for drinks?
+      - i want to order some drinks
+      - i want to get [10](number) [american coffee]{"entity":"drinks", "value":"black coffee"}
+      - i want to get [10](number) [black roasted coffee]{"entity":"drinks", "value":"black coffee"}
+  
+  - synonym: black coffee
+    examples: |
+      - dark coffee
+      - black roasted coffee
+      - dark roasted coffee
+      - american coffee
+      - normal coffee
+  
+  - intent: order_bakery
+    examples: |
+      - i want to order [cookie]{"entity":"bakery", "value":"cookie"}
+      - i want to order [1](number) [cookie]{"entity":"bakery", "value":"cookie"}
+      - can i have [croissant]{"entity":"bakery", "value":"croissant"} please
+      - i want to order [one]{"entity":"number", "value":"one"} [cookie]{"entity":"bakery", "value":"cookie"}
+      - i want to order [three]{"entity":"number", "value":"three"} [croissant]{"entity":"bakery", "value":"croissant"}
+      - may i get [five]{"entity":"number", "value":"five"}  [croissant]{"entity":"bakery", "value":"croissant"}
+      - i want a [begal]{"entity":"bakery", "value":"begal"}
+      - make me a [donut]{"entity":"bakery", "value":"donut"}
+      - add a [cookie]{"entity":"bakery", "value":"cookie"}
+      - fetch me [croissant]{"entity":"bakery", "value":"croissant"}
+      - add [begal]{"entity":"bakery", "value":"begal"} to the bill
+      - one more thing, [donut]{"entity":"bakery", "value":"donut"}
+      - don't forget to add [5](number) [cookie]{"entity":"bakery", "value":"cookie"}
+      - i want to order some food
+
+  
+  
+  
+  
+  - intent: provide_size
+    examples: |
+      - i want it to be size [large](size)
+      - [medium ](size) please
+      - one [small](size) 
+      - i need it size [large](size)
+      - size [medium ](size)
+      - i need it size [small](size)
+      - for this size [large](size)
+
+  - intent: remove_order_drinks
+    examples: |
+      - i want to remove [2]{"entity":"number", "value":"2"} [large]{"entity":"size", "value":"large"} [black coffee]{"entity":"drinks", "value":"black coffee"}
+      - i don't want that [iced coffee]{"entity":"drinks", "value":"iced coffee"} anymore !
+      - please remove the the [small]{"entity":"size", "value":"small"} [iced latte]{"entity":"drinks", "value":"iced latte"}
+      - i want to cancel the [black coffee]{"entity":"drinks", "value":"black coffee"}
+      - remove [one]{"entity":"number", "value":"one"} [latte]{"entity":"drinks", "value":"latte"} please
+      - remove [three]{"entity":"number", "value":"three"} [black coffee]{"entity":"drinks", "value":"black coffee"} please
+
+  - intent: remove_order_bakery
+    examples: |
+      - i want to remove [2]{"entity":"number", "value":"2"} [cookie]{"entity":"bakery", "value":"cookie"}
+      - i don't want that [cookie]{"entity":"bakery", "value":"cookie"} anymore !
+      - please remove the the [donut]{"entity":"bakery", "value":"donut"}
+      - i want to cancel the [donut]{"entity":"bakery", "value":"donut"}
+      - remove [one]{"entity":"number", "value":"one"}[cookie]{"entity":"bakery", "value":"cookie"} please
+      - remove [three]{"entity":"number", "value":"three"} [donut]{"entity":"bakery", "value":"donut"} please
+
+
+  - intent: remove_order_all
+    examples: |
+      - i don't want to order anymore 
+      - please cancel out my order
+      - please remove my order 
+      - can you cancel my order 
+      - i don't want the order anymore
+      - please remove everything
+      - cancel out everything
+      - no need for order anymore 
+      - i want to start new order 
+      - please make me  new order
+      - new order please 
+
+  - intent: size_asking
+    examples: |
+      - what sizes you offer?
+      - how many size you have ?
+      - what type of sizes you offer ?
+      - is there a large ? 
+      - do you have small?
+      - i wounder if you have medium size available ?
+      
+
+      
+
+  - intent: checkout
+    examples: |
+      - i want it to be get my [bill]{"entity":"bill", "value":"bill"} please 
+      - [bill]{"entity":"bill", "value":"bill"} please 
+      - ok i am done ordering 
+      - how much is the [bill]{"entity":"bill", "value":"bill"}
+      - give me the [invoice]{"entity":"bill", "value":"bill"} 
+      - i want to pay
+      - give me checkout 
+      - i want to checkout
+
+
+  - synonym: bill
+    examples: |
+      - invoice
+      - account
+      - statement
+      - list of charges
+      - tally
+      - amount due
+      - check
+      - checkout 
+      - credit account
+
+
+  - regex: number
+    examples: |
+      - ^[1-9][0-9]?$|^100$
+        
+  # trying to comment it out 
+  # - lookup: number
+  #   examples: |
+  #     - 1
+  #     - 2
+  #     - 3
+  #     - 4
+  #     - 5
+  #     - 6
+  #     - 7
+  #     - 8 
+  #     - 9 
+  #     - 10
+  #     - one 
+  #     - two 
+  #     - three 
+  #     - four
+  #     - five
+  #     - six 
+  #     - seven 
+  #     - eight 
+  #     - nine 
+  #     - ten
+
+  - lookup: drinks
+    examples: |
+      - black coffee
+      - latte
+      - iced latte
+      - iced coffee
+      - cappuccino
+  
+
+  
+  - lookup: bakery
+    examples: |
+      - cookie
+      - croissant
+      - begal
+      - donut
+  
+  
+  - lookup: size
+    examples: |
+      - large
+      - medium 
+      - small
+      - s
+      - m
+      - l
+  - synonym : large
+    examples: |
+      - big
+      - l
+      - lg
+      - grande
+      - tall 
+      - L
+  - synonym : medium
+    examples: |
+      - middle 
+      - m
+      - short
+      
+  - synonym : small
+    examples: |
+      - s
+      - least size 
+      - smallest 
+      - demi
+ 
+
+  - intent: list_drinks
+    examples: |
+      - what drinks do you have available? 
+      - what drinks do you have?
+      - can you give me a list of drinks
+      - hello, what drinks do you guys serve? 
+      - hi there, i need to know what drinks you guys serve
+      - what drinks do you serve?
+      - what drinks do you have? 
+      - drinks?
+      - drinks
+      - cold drinks?
+      - cold drink
+      - do you have any drinks ?
+      - what beverages do you have 
+      - any thing we can drink ?
+      - what kind of coffee do you offer? 
+      - what kind of drinks you provide?
+      - give me all type of list  of beverages you offer here
+
+
+  - intent: list_menu
+    examples: |
+      - what do you sell here in the coffee shop
+      - can i see the menu
+      - show me the menu 
+      - let me see the menu 
+      - menu please 
+      - can you show me list of things you are selling here 
+
+  - intent: list_bakery
+    examples: |
+      - what food do you have available? 
+      - what food do you have?
+      - can you give me a list of food
+      - hello, what food do you guys serve? 
+      - hi there, i need to know what food you guys serve
+      - what food do you serve? 
+      - what food do you have? 
+      - food?
+      - food
+      - bakery?
+      - bakery
+      - what baked stuff do you have available? 
+      - what baked stuff do you have?
+      - can you give me a list of baked food
+      - hello, what baked stuff do you guys serve? 
+      - hi there, i need to know what baked food you guys serve
+      - what baked stuff do you serve? 
+      - what baked stuff do you have?
+
+  - intent: offers
+    examples: |
+      - what are the available offers? 
+      - is there any offers available?
+      - offer?
+      - offers?
+      - discount?
+      - discounts?
+      - sale?
+      - sales?
+      - offer
+      - offers
+      - discount
+      - discounts
+      - sale 
+      - sales
+      - any discounts?
+      - what items have discounts on them? 
+      - give me a list of the offers please
+      - is there a sale on any item?
+      - what items are included in the sale?
+      - hi, what sales are currently available?
+
+  - intent: suggest_options
+    examples: |
+      - what items do you suggests me to order ?
+      - do you have anything that you can recommend to me ?
+      - i want to know  what is your suggestions ?
+      - do you have anything special ?
+      - what do you suggest to me 
+
+      
+
+  - intent: contact
+    examples: |
+      - what is the restaurant number? 
+      - restaurant number? 
+      - restaurant phone number?
+      - restaurant telephone number? 
+      - tel?
+      - telly?
+      - cellphone number?
+      - cellphone number
+      - can i have the restaurant cellphone number? 
+      - hey i need the cellphone number
+      - can i have the telly number?
+      - how can i contact the restaurant? 
+      - i want to get in contact with you guys.
+      - do you have an email? 
+      - can you give the support email? 
+      - i need the support staff email
+      - where can i find the support staff email?
+      - email?
+      - how can i talk to a representative?
+      - i need to talk to a representative
+      - can you connect me to a representative
+      - i want to apply to a job
+      - do you guys have jobs available? 
+      - can i work as a barista? 
+      - any available jobs?
+      - are you guys hiring?
+      - where can i apply for a job?
+      - i lost my keys at the store
+  
+  - intent: asking_for_complaint
+    examples: |
+      - i want to make a complaint
+      - can i make a complaint? 
+      - need to make a complaint
+      - how can i make a complaint?
+      - can i talk to the manager? 
+      - can i talk to the supervisor? 
+      - i need to talk to a representative 
+      - give me the manager
+      - give me your supervisor
+      - connect me to the manager
+      - connect me to the supervisor
+      - where is your manager? 
+      - where is your supervisor
+      - hey this is unacceptable, give me your manager
+      - hey this is unacceptable, give me your manager
+      - unacceptable, i need to talk to the manager
+  
+  - intent: making_complaint
+    examples: |
+      - Your food is so bad
+      - your employee was rude
+      - rude
+      - bad
+      - waste of money
+      - waste of time
+      - garbage 
+      - dumpster food
+      - slow service
+      - my order was incomplete 
+      - my order was late
+      - my order was cold
+      - your food smells bad
+      - my order was missing  
+      - not everything was included in my order
+      - someone stole money from me
+      - i lost an item in your store
+      - the food tasted bad
+      - the employee was talking smack
+      - the employees were missing
+      - the employee was smoking inside the restaurant
+      - there was no place to sit
+      - the lighting was so bad
+      - the bathroom was unclean
+      - the cashier was slow
+      - the cashier was rude
+      - the cashier was missing
+      - the ground was slippery
+      - i hate
+      - i hate your food
+      - i hate your restaurant
+      - shit
+      - your food is shit
+      - drinks are bad
+      - your drinks are taste like 
+      - your drinks smell like
+      - your drinks are too expensive
+      - your food is so expensive
+      - on his phone all the time
+      - worse restaurant ever
+      - the worse
+      - the worst
+      - the baddest
+
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - good morning
+      - good evening
+      - good afternoon
+
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+      - thats all 
+      - that's all
+      - that's all i need
+      - thats all of my order
+      - my order is complete
+      - yes that's it
+
+  - intent: affirm
+    examples: |
+      - yes
+      - y
+      - indeed
+      - of course
+      - that sounds good
+      - correct
+      - ya
+      - agree
+      - agreed
+      - yup
+
+  - intent: deny
+    examples: |
+      - no
+      - n
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
+      - nope
+      - nah
+      - na
+
+  # - intent: mood_great
+  #   examples: |
+  #     - perfect
+  #     - great
+  #     - amazing
+  #     - feeling like a king
+  #     - wonderful
+  #     - I am feeling very good
+  #     - I am great
+  #     - I am amazing
+  #     - I am going to save the world
+  #     - super stoked
+  #     - extremely good
+  #     - so so perfect
+  #     - so good
+  #     - so perfect
+
+  # - intent: mood_unhappy
+  #   examples: |
+  #     - my day was horrible
+  #     - I am sad
+  #     - I don't feel very well
+  #     - I am disappointed
+  #     - super sad
+  #     - I'm so sad
+  #     - sad
+  #     - very sad
+  #     - unhappy
+  #     - not good
+  #     - not very good
+  #     - extremly sad
+  #     - so saad
+  #     - so sad
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+
+
