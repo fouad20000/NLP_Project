@@ -45,6 +45,35 @@
 
 ❖ WebChatbot integrated interface : https://github.com/Horizon733/rasa-webchat.
 
+# Datasets 
+
+Food_Item_to_id.ipynb
+URL:https://colab.research.google.com/drive/1qM7xNPJe8ypIWEFXVHHXpNjm44hqysw?usp=sharing
+
+Converstaion.ipynb.
+URL:https://colab.research.google.com/drive/1wU2TnrvL6qT3uZwWdXqwoJWKd_Qlm-ah?usp=sharing.
+
+Cafe_Data.ipynb.
+URL:https://colab.research.google.com/drive/1pisjnoEgY2IHdPRHQQHI4s7Fj_JiNNO9?usp=sharing.
+
+Rating_EDA.ipynb
+URL:https://colab.research.google.com/drive/1G9PIBoh69xpq4f3uCfOw4jZKq54Tllj?usp=sharing.
+
+Fourth Dataset
+URL: https://github.com/fouad20000/NLP_Project.
+	- For each category we’ll represent how many training data we’ve as follows:
+ 
+	Approximately:
+	Intent: 			|		25 intents.
+	Entity: 			|		11 Entities
+	Actions:			|		20 action.
+	Story: 				|		21 stories
+	Lookup: 			|		4 lookups.
+	Synonym:			|		3 synonyms.
+	Rule: 				|		10 rules.
+	Response: 			|		19 responses
+
+
 # Café Chatbot
 
 
