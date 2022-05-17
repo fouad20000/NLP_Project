@@ -1,0 +1,253 @@
+version: "3.1"
+#Intents
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - list_drinks
+  - list_bakery
+  - offers
+  - contact
+  - making_complaint
+  - asking_for_complaint
+  - affirm
+  - deny
+  - order_drinks
+  - order_bakery
+  - order_general
+  - number
+  - provide_size
+  - checkout
+  - list_menu
+  - suggest_options
+  - remove_order_drinks
+  - remove_order_bakery
+  - remove_order_all
+  - size_asking
+
+#Entities
+entities:
+  - number
+  - bakery
+  - drinks
+  - size
+  - bill
+
+
+#Slots
+slots:
+
+  #number slot
+  number:
+    type: text
+    initial_value: one
+    mappings:
+    - type: from_entity
+      entity: number
+      condition: #when to listen to the the value, only if the form is running 
+        - drinks_form
+        - drinks_form_remove
+        - bakery_form
+        - bakery_form_remove
+      influence_conversation: true    
+  
+  #bakery slot
+  bakery:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: bakery
+      condition: #when to listen to the the value, only if the form is running 
+        - bakery_form
+        - bakery_form_remove
+      influence_conversation: true
+  
+  #drinks slot
+  drinks:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: drinks
+      condition: #when to listen to the the value, only if the form is running 
+        - drinks_form
+        - drinks_form_remove
+    influence_conversation: true
+  
+  #size slot 
+  size:
+    type: categorical
+    values:
+      - small
+      - medium 
+      - large   
+    mappings:
+    - type: from_entity
+      entity: size
+      #intent: provide_size
+      condition: #when to listen to the the value, only if the form is running 
+        - drinks_form
+        - drinks_form_remove
+    influence_conversation: true
+  
+  #bill slot 
+  bill:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: bill
+      intent: check_out
+      influence_conversation: true
+
+
+#Forms
+forms:
+  #Drinks adding form
+  drinks_form:
+    ignored_intents: 
+      - great
+      - goodbye
+      - bot_challenge
+    required_slots:
+      - drinks
+      - size
+  
+  #Drinks removing form
+  drinks_remove_form:
+    ignored_intents: 
+      - great
+      - goodbye
+      - bot_challenge
+    required_slots:
+      - drinks
+      - size 
+  
+  #Bakery Adding form
+  bakery_form:
+    ignored_intents: 
+      - great
+      - goodbye
+      - bot_challenge
+    required_slots:
+      - bakery
+  
+  #Bakery removing form
+  bakery_remove_form:
+    ignored_intents: 
+      - great
+      - goodbye
+      - bot_challenge
+    required_slots:
+      - bakery
+
+  
+       
+
+      
+# Actions 
+actions: 
+  - action_bakery_order
+  - action_size
+  - action_drinks_order
+  - action_checkout
+  - validate_drinks_form
+  - validate_bakery_form
+  - action_display_menu
+  - action_suggestion
+  - action_bakery_remove
+  - action_drinks_remove
+  - action_remove_all
+  - validate_drinks_remove_form
+  - validate_bakery_remove_form
+
+
+
+# Responses
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+    - text: "Er7booo"
+    - text: "Ya Halah"
+    - text: "Halah, sm 7bee"
+  
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_goodbye:
+    - text: "Bye"
+    - text: "Nshoofk bkeeer "
+    - text: "Fe Aman allah "
+    - text: "Bey, my friend "
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+ 
+  # try to make it custom so all list is displayed normally 
+  utter_list_drinks:
+    - text: "we have the following :\n black coffee, iced coffee,latte, iced latte, and cappucino .\nWe have the following cold drinks:\nIced Coffee, and Iced Latte"
+  
+  # try to make it custom so all list is displayed normally 
+  utter_list_bakery:
+    - text: "we have the following baked items:\nChocolate Donut, Croissant, Cookie, and Begals"
+     
+  # try to make it custom so all list is displayed normally
+  utter_list_offers:
+    - text: "visit the website to see the offers: http://dunkindonuts.sa/English/Menu/Pages/default.aspx"
+  
+  utter_contact:
+    - text: "Phone: +966 11 4651001 Email: Info@dunkindonuts.sa Fax: +966 11 4657008​​"
+  
+  utter_provide_size:
+    - text: "Our drinks come in small, medium , and large  ​​"
+    - text: "We serve our drinks in three sizes: small, medium, and large"
+    - text: "You can have your drink in small, medium, and large"
+  
+  utter_register_complaint:
+    - text: "Your complaint has been saved\nYou can check the status of your complaint by contacting us on the following medias:\nPhone: +966 11 4651001 Email: Info@dunkindonuts.sa Fax: +966 11 4657008​​"
+  
+  utter_asking_for_complaint:
+    - text: "Can you please provide information about your complaint?"
+  # check about it 
+  utter_order:
+    - text: "what do you want to order "
+    - text: " can you please tell me what you want to order ?"
+  
+
+  # to be used by form 
+  utter_ask_size:
+    - text: "What size you want?"
+    - text: "and what size you want it to be ?"
+    - text: "can you give me the size of your {drinks} please ?"
+    - text: "What size you do want your {drinks} to be ?"
+    
+  
+  utter_ask_drinks:
+    - text: "What type of coffee you want?"
+    - text: "Can you tell me the the type of coffee you want ?"
+  
+  utter_ask_bakery:
+    - text: "What type of food you want?"
+    - text: "Can you tell me the the type of bakery you want ?"
+    - text: "We have many, can you choose one ?"
+    - text: "What kind of bakery you want?"
+  
+  
+  utter_ask_for_more:
+    - text: "any thing else you would like to order ?"
+    - text: "anything more ?"
+    - text: "ok! anything more 7bee"
+    - text: " from this eye to this eye ya 7bee, tamrnee in anything else?"
+  utter_ask_for_more_remove:
+    - text: "any thing else you would like to remove ?"
+    - text: "anything more you need to remove ?"
+    - text: "ok! anything more 7bee?"
+
+  utter_ask_for_order:
+    - text: "so what do you want to order ?"
+    - text: "do you want to order ?"
+    - text: "so 7hbee do love to order anything?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false
+
