@@ -1,14 +1,18 @@
 # NLP_Project
-This NLP Project aims to make Café Chatbot.
 
+**This NLP Project aims to make Café Chatbot.**
 
-Team Members:
+# Team Members:
+
 1. Fouad Majd Alkadri
-2.Abdullah Rajoub 
+
+2. Abdullah Rajoub 
+
 3. Abdulaziz Alowain 
+
 4. Ibrahim Khurfan
 
-**Scope of the Project**
+# Scope of the Project
 
 **Features Included in our chatbot**
 
@@ -36,7 +40,7 @@ Team Members:
 ❖	The chatbot will provide suggestions to the customer.
 
 
-**Café Chatbot**
+# Café Chatbot
 
 
 ![nbmjj-jojo](https://user-images.githubusercontent.com/50175365/164934443-2a4ab385-9caf-40fb-926b-474aca8df215.gif)
