@@ -1,0 +1,9 @@
+{
+  "rule_only_slots": [],
+  "rule_only_loops": [
+    "drinks_form",
+    "drinks_remove_form",
+    "bakery_remove_form",
+    "bakery_form"
+  ]
+}

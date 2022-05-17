@@ -1,0 +1,18 @@
+[
+  {
+    "name": "number",
+    "pattern": "^[1-9][0-9]?$|^100$"
+  },
+  {
+    "name": "drinks",
+    "pattern": "(\\bblack\\ coffee\\b|\\blatte\\b|\\biced\\ latte\\b|\\biced\\ coffee\\b|\\bcappuccino\\b)"
+  },
+  {
+    "name": "bakery",
+    "pattern": "(\\bcookie\\b|\\bcroissant\\b|\\bbegal\\b|\\bdonut\\b)"
+  },
+  {
+    "name": "size",
+    "pattern": "(\\blarge\\b|\\bmedium\\b|\\bsmall\\b|\\bs\\b|\\bm\\b|\\bl\\b)"
+  }
+]
