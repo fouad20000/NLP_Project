@@ -89,3 +89,27 @@ Steps:
 14-To Clear the chat refresh the webpage 
 
 15-Enjoy your bot 
+
+
+# References:
+
+1.	https://bhashkarkunal.medium.com/conversational-ai-chatbot-using-rasa-nlu-rasa-core.how-dialogue-handling-with-rasa-core-can-use-331e7024f733.
+	
+2.	https://analyticsindiamag.com/10-nlp-open-source-datasets-to-start-your-first-nlp-project/.
+
+3.	https://rasa.com/docs/rasa/nlu-training-data/.
+
+4.	https://analyticsindiamag.com/10-nlp-open-source-datasets-to-start-your-first-nlpproject/.
+
+5.	https://www.geeksforgeeks.org/chatbots-using-python-and-rasa/.
+
+6.	https://www.irjet.net/archives/V8/i6/IRJET-V8I6683.pdf.
+
+7.	https://www.researchgate.net/publication/234805405_Different_measurements_metrics_to_evaluate_a_chatbot_system.
+
+8.	https://arxiv.org/pdf/2009.12341.pdf.
+
+9.	https://www.researchgate.net/publication/220046725_Chatbots_Are_they_Really_Useful.
+
+10.	THE RASA MASTERCLASS HANDBOOK: A COMPANION GUIDE TO THE RASA MASTERCLASS VIDEO SERIES.
+
